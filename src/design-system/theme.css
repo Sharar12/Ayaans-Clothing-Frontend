@@ -1,0 +1,203 @@
+@theme {
+  --font-sans: var(--font-jakarta), -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-canvas: #ffffff;
+  --color-alabaster: #f5f5f7;
+  --color-porcelain: #fafafc;
+  --color-ink: #0a0b0e;
+  --color-graphite: #515154;
+  --color-muted: #6e6e73;
+}
+
+:root {
+  color-scheme: light;
+  background-color: #ffffff;
+  color: #0a0b0e;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #ffffff;
+  color: #0a0b0e;
+  overflow-x: hidden;
+}
+
+/* Signature Frosted Liquid Glass (Apple macOS / iOS style on Pure White) */
+.glass-surface {
+  background: rgba(255, 255, 255, 0.74);
+  backdrop-filter: blur(24px) saturate(185%);
+  -webkit-backdrop-filter: blur(24px) saturate(185%);
+  border: 1px solid rgba(15, 23, 42, 0.075);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.92),
+    0 8px 32px -12px rgba(15, 23, 42, 0.07);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(18px) saturate(170%);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 2px 10px -4px rgba(15, 23, 42, 0.06);
+}
+
+/* Soft Multi-Layered Ambient Elevation (Never harsh black shadows) */
+.ambient-card {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.07);
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.025),
+    0 10px 28px -16px rgba(15, 23, 42, 0.065);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease;
+}
+
+.ambient-card:hover {
+  border-color: rgba(99, 102, 241, 0.22);
+  box-shadow:
+    0 4px 14px rgba(15, 23, 42, 0.04),
+    0 24px 48px -18px rgba(99, 102, 241, 0.14);
+}
+
+/* Prismatic Hairline Iridescent Focus & Active Border (Apple Intelligence aesthetic) */
+.prismatic-ring {
+  position: relative;
+  isolation: isolate;
+}
+
+.prismatic-ring::before {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(
+    120deg,
+    #38bdf8,
+    #818cf8,
+    #f472b6,
+    #fb923c,
+    #2dd4bf,
+    #38bdf8
+  );
+  background-size: 260% 260%;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.7;
+  animation: prismaticShift 5.5s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.prismatic-hover::before {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.prismatic-hover:hover::before,
+.prismatic-hover:focus-within::before {
+  opacity: 0.9;
+}
+
+/* Luminous Ambient Input Focus */
+.luminous-input {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.luminous-input:focus {
+  outline: none;
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow:
+    0 0 0 4px rgba(129, 140, 248, 0.13),
+    0 6px 20px -8px rgba(56, 189, 248, 0.24);
+}
+
+/* Subtle Drifting Ambient Luminescent Orbs */
+@keyframes auraDrift {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(18px, -14px, 0) scale(1.06);
+  }
+}
+
+@keyframes prismaticShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-aura {
+  animation: auraDrift 16s ease-in-out infinite;
+}
+
+.animate-aura-delayed {
+  animation: auraDrift 20s ease-in-out infinite reverse;
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 36s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Smooth Mask for Faded Video Edges (Top, Bottom & Sides) */
+.video-fade-mask {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+}
+
+/* Subtle Text Iridescent Accent */
+.text-iridescent {
+  background: linear-gradient(110deg, #0a0b0e 0%, #4f46e5 45%, #0284c7 75%, #ec4899 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
