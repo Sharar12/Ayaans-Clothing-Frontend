@@ -14,6 +14,7 @@ import {
   ArrowUpRight,
   ChevronDown,
   Sparkles,
+  Shield,
 } from 'lucide-react';
 import { useApp } from '@/store/AppContext';
 import { PrismaticButton } from '@/design-system/primitives';
@@ -315,11 +316,22 @@ export function Navbar() {
             <Link
               href="/account"
               aria-label="Buyer Portal"
+              title="Buyer Portal"
               className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors ${
                 buyer ? 'bg-indigo-50 text-indigo-700' : 'text-[#515154] hover:bg-[#F5F5F7] hover:text-[#0A0B0E]'
               }`}
             >
               <User className="h-4 w-4" />
+            </Link>
+
+            {/* Admin Sign In Icon */}
+            <Link
+              href="/admin"
+              aria-label="Admin Sign In"
+              title="Admin & ERP Control"
+              className="hidden h-9 w-9 shrink-0 items-center justify-center rounded-full text-[#515154] transition-colors hover:bg-slate-900 hover:text-white sm:inline-flex"
+            >
+              <Shield className="h-4 w-4 text-amber-500" />
             </Link>
 
             {/* Primary Request Quote CTA */}
@@ -359,6 +371,7 @@ export function Navbar() {
                 { label: 'Wholesale FAQ', href: '/faq' },
                 { label: 'Contact Export Desk', href: '/contact' },
                 { label: 'Buyer Portal', href: '/account' },
+                { label: 'Admin Sign In', href: '/admin' },
               ].map((link) => (
                 <Link
                   key={link.href}

@@ -60,6 +60,7 @@ export function Footer() {
               <li><Link href="/rfq" className="hover:text-[#0A0B0E]">Request Quotation (RFQ)</Link></li>
               <li><Link href="/compliance" className="hover:text-[#0A0B0E]">Certifications Vault</Link></li>
               <li><Link href="/account" className="hover:text-[#0A0B0E]">Buyer Portal</Link></li>
+              <li><Link href="/admin" className="hover:text-[#0A0B0E] font-medium text-indigo-600">Admin Sign In</Link></li>
             </ul>
           </div>
 

@@ -21,6 +21,7 @@ import {
   Shield,
   UserCheck,
 } from 'lucide-react';
+import Image from 'next/image';
 import type { StaffRole } from '@/types/admin';
 import { AmbientAura, PrismaticButton, SpecBadge } from '@/design-system/primitives';
 import { APPLE_EASE, TACTILE_SPRING } from '@/design-system/motion';
@@ -121,8 +122,27 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
         <AmbientAura variant="hero" />
         <div className="relative mx-auto max-w-4xl">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
-            <div className="glass-surface flex flex-col justify-between rounded-[32px] p-8 md:col-span-6">
+            <div className="glass-surface flex flex-col justify-between overflow-hidden rounded-[32px] p-8 md:col-span-6 relative">
               <div>
+                <div className="relative mb-5 h-44 w-full overflow-hidden rounded-2xl border border-black/[0.08] shadow-xs">
+                  <Image
+                    src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1200&q=85"
+                    alt="Ayaan Clothing Garments Manufacturing & QC Floor"
+                    fill
+                    className="object-cover transition-transform duration-700 hover:scale-105"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-white/90">
+                      Dhaka Factory &amp; Logistics Hub
+                    </span>
+                    <span className="rounded-full bg-white/20 px-2 py-0.5 font-mono text-[10px] backdrop-blur-md">
+                      Staff Secured
+                    </span>
+                  </div>
+                </div>
+
                 <SpecBadge tone="original">Ayaan Staff Workspace · Dhaka HQ</SpecBadge>
                 <h1 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-[#0A0B0E]">
                   Admin &amp; ERP Control Center

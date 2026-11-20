@@ -28,6 +28,7 @@ import {
   Shield,
   UserCheck,
 } from 'lucide-react';
+import Image from 'next/image';
 import { useApp } from '@/store/AppContext';
 import { portalApi } from '@/services/portalApi';
 import type { PortalNotification } from '@/types/portal';
@@ -71,8 +72,27 @@ export function PortalShell({ children }: { children: React.ReactNode }) {
       <div className="relative min-h-[85vh] bg-white px-4 py-14 sm:py-20">
         <AmbientAura variant="hero" />
         <div className="relative mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-12">
-          <div className="glass-surface flex flex-col justify-between rounded-[32px] p-8 sm:p-10 md:col-span-6">
+          <div className="glass-surface flex flex-col justify-between overflow-hidden rounded-[32px] p-8 sm:p-10 md:col-span-6 relative">
             <div>
+              <div className="relative mb-5 h-44 w-full overflow-hidden rounded-2xl border border-black/[0.08] shadow-xs">
+                <Image
+                  src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=85"
+                  alt="Ayaan Clothing Wholesale Showroom & Inspection Facility"
+                  fill
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-white/90">
+                    Dhaka HQ Showroom &amp; QC
+                  </span>
+                  <span className="rounded-full bg-white/20 px-2 py-0.5 font-mono text-[10px] backdrop-blur-md">
+                    AQL 2.5
+                  </span>
+                </div>
+              </div>
+
               <SpecBadge tone="original">Verified Global Buyer Workspace</SpecBadge>
               <h1 className="mt-4 text-3xl font-semibold tracking-[-0.035em] text-[#0A0B0E] sm:text-4xl">
                 Ayaan Trade Portal
@@ -95,7 +115,7 @@ export function PortalShell({ children }: { children: React.ReactNode }) {
                 ))}
               </ul>
             </div>
-            <p className="mt-8 font-mono text-[11px] text-[#6E6E73]">
+            <p className="mt-6 font-mono text-[11px] text-[#6E6E73]">
               ISO 9001:2015 · BGMEA Reg #1708 · Dhaka Since 2010
             </p>
           </div>
